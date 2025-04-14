@@ -1,4 +1,3 @@
-# Ignore Visual Studio temporary files
 .vs/
 *.user
 *.suo
@@ -7,10 +6,8 @@
 bin/
 obj/
 
-# Ignore user-specific files
 *.userosscache
 *.suo
 *.userprefs
 
-# Ignore other common folders/files
 .vscode/
