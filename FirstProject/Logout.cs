@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace FirstProject
 {
     public partial class Logout : Form
@@ -19,21 +20,32 @@ namespace FirstProject
 
         private void label1_Click(object sender, EventArgs e)
         {
-
+            // You can remove this if unused
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            this.Close(); // close logout form
+
+            // Close all other open forms except login
+            foreach (Form form in Application.OpenForms.Cast<Form>().ToList())
+            {
+                if (!(form is Admin)) // don't close login form if already open
+                {
+                    form.Close();
+                }
+            }
+
+            // Show login form
             Admin loginForm = new Admin();
             loginForm.Show();
-            this.Close(); 
-                          
-            Application.OpenForms["Form3"]?.Close();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+
+
+        private void button2_Click(object sender, EventArgs e) // Cancel Logout
         {
-            this.Close();
+            this.Close(); // Just close the logout form and return to previous form
         }
     }
 }

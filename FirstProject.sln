@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35931.197 d17.13
+VisualStudioVersion = 17.13.35931.197
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirstProject", "FirstProject\FirstProject.csproj", "{CEE7E57B-0B2D-4466-B13E-B0B4E179A494}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "EDP", "EDP\EDP.vdproj", "{C1E43DA2-93C8-8F70-CBF1-B48A9A44C5AB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,8 @@ Global
 		{CEE7E57B-0B2D-4466-B13E-B0B4E179A494}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CEE7E57B-0B2D-4466-B13E-B0B4E179A494}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CEE7E57B-0B2D-4466-B13E-B0B4E179A494}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1E43DA2-93C8-8F70-CBF1-B48A9A44C5AB}.Debug|Any CPU.ActiveCfg = Debug
+		{C1E43DA2-93C8-8F70-CBF1-B48A9A44C5AB}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
