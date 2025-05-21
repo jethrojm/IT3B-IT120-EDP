@@ -1,4 +1,4 @@
-﻿using MySql.Data.MySqlClient;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace $safeprojectname$
+namespace FirstProject
 {
     public partial class Products : Form
     {
@@ -43,10 +43,9 @@ namespace $safeprojectname$
         private void Products_Load(object sender, EventArgs e)
         {
             LoadProducts();
-            comboBox1.Items.AddRange(new string[] {
-        "Electronics", "Clothing", "Appliances", "Food", "Furniture"
-    });
+            LoadCategories(); // This line loads real CategoryIDs
         }
+
 
 
 
@@ -224,7 +223,7 @@ namespace $safeprojectname$
                 string query = "INSERT INTO products (ProductName, Category, Price, Stock) VALUES (@name, @cat, @price, @stock)";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@name", textBox1.Text);
-                cmd.Parameters.AddWithValue("@cat", comboBox1.SelectedItem.ToString());
+                cmd.Parameters.AddWithValue("@cat", Convert.ToInt32(comboBox1.SelectedValue));
                 cmd.Parameters.AddWithValue("@price", Convert.ToDecimal(textBox2.Text));
                 cmd.Parameters.AddWithValue("@stock", Convert.ToInt32(textBox3.Text));
                 cmd.ExecuteNonQuery();
@@ -278,6 +277,22 @@ namespace $safeprojectname$
             catch (Exception ex)
             {
                 MessageBox.Show("Error deleting product: " + ex.Message);
+            }
+        }
+
+        private void LoadCategories()
+        {
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+                string query = "SELECT CategoryID, CategoryName FROM categories";
+                MySqlDataAdapter adapter = new MySqlDataAdapter(query, conn);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+
+                comboBox1.DataSource = dt;
+                comboBox1.DisplayMember = "CategoryName";
+                comboBox1.ValueMember = "CategoryID";
             }
         }
 
