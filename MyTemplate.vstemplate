@@ -1,0 +1,60 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name>FirstProject1</Name>
+    <Description>&lt;No description available&gt;</Description>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>
+    </ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>FirstProject1</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <Icon>__TemplateIcon.ico</Icon>
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="FirstProject.csproj" File="FirstProject.csproj" ReplaceParameters="true">
+      <ProjectItem ReplaceParameters="true" TargetFileName="Admin.cs">Admin.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Admin.Designer.cs">Admin.Designer.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Admin.resx">Admin.resx</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="App.config">App.config</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Dashboard.cs">Dashboard.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Dashboard.Designer.cs">Dashboard.Designer.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Dashboard.resx">Dashboard.resx</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="ForgotPassword.cs">ForgotPassword.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="ForgotPassword.Designer.cs">ForgotPassword.Designer.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="ForgotPassword.resx">ForgotPassword.resx</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Login.cs">Login.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Login.Designer.cs">Login.Designer.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Login.resx">Login.resx</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Logout.cs">Logout.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Logout.Designer.cs">Logout.Designer.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Logout.resx">Logout.resx</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Orders.cs">Orders.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Orders.Designer.cs">Orders.Designer.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Orders.resx">Orders.resx</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="packages.config">packages.config</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Payments.cs">Payments.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Payments.Designer.cs">Payments.Designer.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Payments.resx">Payments.resx</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Products.cs">Products.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Products.Designer.cs">Products.Designer.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Products.resx">Products.resx</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Program.cs">Program.cs</ProjectItem>
+      <Folder Name="Properties" TargetFolderName="Properties">
+        <ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Resources.resx">Resources.resx</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Resources.Designer.cs">Resources.Designer.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Settings.settings">Settings.settings</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Settings.Designer.cs">Settings.Designer.cs</ProjectItem>
+      </Folder>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Summary.cs">Summary.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Summary.Designer.cs">Summary.Designer.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Summary.resx">Summary.resx</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Users.cs">Users.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Users.Designer.cs">Users.Designer.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Users.resx">Users.resx</ProjectItem>
+    </Project>
+  </TemplateContent>
+</VSTemplate>
