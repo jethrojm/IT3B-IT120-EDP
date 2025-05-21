@@ -1,4 +1,4 @@
-﻿using MySql.Data.MySqlClient;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,11 +11,12 @@ using System.Windows.Forms;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
 using System.IO;
-using LicenseContext = OfficeOpenXml.LicenseContext;
+using Excel = Microsoft.Office.Interop.Excel;
+using System.Runtime.InteropServices;
 
 
 
-namespace $safeprojectname$
+namespace FirstProject
 {
     public partial class Summary : Form
     {
@@ -198,48 +199,54 @@ namespace $safeprojectname$
 
             try
             {
-                // Set EPPlus license context (required for EPPlus 8+)
-                ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
-                ExcelPackage.License.SetNonCommercialPersonal("Jethro Manzanillo"); // Replace with your name
-
-                using (ExcelPackage package = new ExcelPackage())
+                // Create Excel application
+                var excelApp = new Microsoft.Office.Interop.Excel.Application();
+                if (excelApp == null)
                 {
-                    var ws = package.Workbook.Worksheets.Add("SalesSummary");
+                    MessageBox.Show("Excel is not installed.");
+                    return;
+                }
 
-                    // Add header row
-                    for (int i = 0; i < dataGridView1.Columns.Count; i++)
+                excelApp.Visible = false;
+                Microsoft.Office.Interop.Excel.Workbook workbook = excelApp.Workbooks.Add(Type.Missing);
+                Microsoft.Office.Interop.Excel.Worksheet worksheet = (Microsoft.Office.Interop.Excel.Worksheet)workbook.Sheets[1];
+                worksheet.Name = "Sales Summary";
+
+                // Add column headers
+                for (int i = 0; i < dataGridView1.Columns.Count; i++)
+                {
+                    worksheet.Cells[1, i + 1] = dataGridView1.Columns[i].HeaderText;
+                }
+
+                // Add rows
+                for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                {
+                    for (int j = 0; j < dataGridView1.Columns.Count; j++)
                     {
-                        ws.Cells[1, i + 1].Value = dataGridView1.Columns[i].HeaderText;
-                        ws.Cells[1, i + 1].Style.Font.Bold = true;
-                        ws.Cells[1, i + 1].Style.Fill.PatternType = ExcelFillStyle.Solid;
-                        ws.Cells[1, i + 1].Style.Fill.BackgroundColor.SetColor(Color.LightBlue);
+                        worksheet.Cells[i + 2, j + 1] = dataGridView1.Rows[i].Cells[j].Value?.ToString();
                     }
+                }
 
-                    // Add data rows
-                    for (int i = 0; i < dataGridView1.Rows.Count; i++)
-                    {
-                        for (int j = 0; j < dataGridView1.Columns.Count; j++)
-                        {
-                            ws.Cells[i + 2, j + 1].Value = dataGridView1.Rows[i].Cells[j].Value;
-                        }
-                    }
+                // Auto-fit columns
+                worksheet.Columns.AutoFit();
 
-                    ws.Cells.AutoFitColumns();
+                // Show Save File Dialog
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "Excel Workbook|*.xlsx";
+                saveFileDialog.Title = "Save Excel File";
+                saveFileDialog.FileName = "SalesSummary.xlsx";
 
-                    // Save file dialog
-                    using (SaveFileDialog sfd = new SaveFileDialog()
-                    {
-                        Filter = "Excel Workbook|*.xlsx",
-                        FileName = "SalesSummary.xlsx"
-                    })
-                    {
-                        if (sfd.ShowDialog() == DialogResult.OK)
-                        {
-                            var fi = new FileInfo(sfd.FileName);
-                            package.SaveAs(fi);
-                            MessageBox.Show($"Report exported successfully to:\n{sfd.FileName}");
-                        }
-                    }
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    workbook.SaveAs(saveFileDialog.FileName);
+                    workbook.Close();
+                    excelApp.Quit();
+
+                    Marshal.ReleaseComObject(worksheet);
+                    Marshal.ReleaseComObject(workbook);
+                    Marshal.ReleaseComObject(excelApp);
+
+                    MessageBox.Show("Excel file exported successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
@@ -247,6 +254,8 @@ namespace $safeprojectname$
                 MessageBox.Show("Error exporting to Excel: " + ex.Message);
             }
         }
+
+
 
 
     }
