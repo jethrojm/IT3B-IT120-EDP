@@ -1,7 +1,6 @@
 📦 Sales & Order Management System
 A desktop-based Sales and Order Management System built with Visual Studio (Windows) in C#, using MySQL as the database. This system efficiently handles orders, user accounts, sales transactions, payments, and generates sales summaries.
 
-
 🧩 Database Design
 The system uses several main relational tables:
 
@@ -11,7 +10,6 @@ orders	Customer orders and order details
 sales	Sales transaction records
 payments	Payment records and statuses
 sales_summary	Aggregated sales data for reporting
-
 
 📹 Demo Video of the Application
 ▶️ Watch on YouTube: https://www.youtube.com/watch?v=_4yqN-7ZW7M
@@ -40,4 +38,3 @@ generatedReports/ – Directory containing all exported Excel reports generated 
 Jethro J. Manzanillo
 Bachelor of Science in Information Technology
 BSIT 3B
-
