@@ -1,17 +1,19 @@
-<<<<<<< HEAD
-=======
+# Build output folders
+bin/
+obj/
 
->>>>>>> e065306 (Save changes before pull)
+# Visual Studio specific
 .vs/
 *.user
 *.suo
 *.cache
 *.log
-bin/
-obj/
-
 *.userosscache
-*.suo
 *.userprefs
 
+# VS Code settings
 .vscode/
+
+# Ignore executable/dll if needed
+*.exe
+*.dll
